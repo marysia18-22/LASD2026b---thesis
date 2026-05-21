@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@netlify/plugin-nextjs": "^5.15.11",
     "bootstrap": "^4.5.3",
     "csv-parse": "^4.14.2",
     "flag-icons": "^6.6.6",

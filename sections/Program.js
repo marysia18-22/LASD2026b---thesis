@@ -1,20 +1,16 @@
 import Container from 'react-bootstrap/Container'
-import Table from 'react-bootstrap/Table'
-import Image from 'react-bootstrap/Image'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import React from 'react'
-import Clock from 'react-live-clock'
 
 
 
-const Program = () => (
+const Program = ({program}) => (
     <Container className="bg-white section p-4 my-5 rounded">
       <a className='target' id='program'/>
       <h2 className='display-4 anchor mb-3'>Program</h2>
-      <p>
-          TBA...
-      </p>
+      {program.status === 'tba' ? (
+      <p>TBA...</p>
+    ) : (
+      <p>Program published.</p>
+    )}
     </Container>
 )
 

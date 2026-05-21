@@ -1,18 +1,19 @@
-import Container from 'react-bootstrap/Container'
 import Button from 'react-bootstrap/Button'
-import Image from 'react-bootstrap/Image'
+import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 
-const Submissions = () => (
+const Submissions = ({edition}) => {
+  const { links } = edition
+
+  return (
   <Container className="bg-white section p-4 my-5 rounded">
     <a className='target' id='submissions'/>
     <h2 className='display-4 anchor mb-3'>Submissions</h2>
     <p>
-      We invite research papers in three categories: Full Papers (12 pages), Short Papers (8 pages), and Posters (4 pages). Authors have the option to add a single extra page at a supplementary cost (regardless of the submission category). Papers must be in English and present original, not already published research. Papers should be submitted in the PDF format using the ISD <a href="https://isd2026.ksi.fit.cvut.cz/submission/">template</a>.
+      We invite research papers in three categories: Full Papers (12 pages), Short Papers (8 pages), and Posters (4 pages). Authors have the option to add a single extra page at a supplementary cost (regardless of the submission category). Papers must be in English and present original, not already published research. Papers should be submitted in the PDF format using the ISD <a href={links.paperTemplate}>template</a>.
     </p>
       <Row className="justify-content-center my-3">
-        <Button className="btn-lg" href='https://easychair.org/conferences/?conf=isd2026'>Submit a paper</Button>
+        <Button className="btn-lg" href={links.submissionPortal}>Submit a paper</Button>
       </Row>
     <p>
       Each submission will be reviewed by at least three program committee members. To facilitate the double-blind reviewing, authors are kindly requested to provide the paper WITHOUT any reference to any of the authors, including the authors' personal details, the acknowledgments section of the paper and any other reference that may disclose the authors' identity.
@@ -20,7 +21,8 @@ const Submissions = () => (
 
 
   </Container>
-)
+  )
+}
 
 export default Submissions
 
