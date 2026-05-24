@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
@@ -28,6 +27,30 @@ npm run dev
 Open [http://yourServerIP:3000](http://yourServerIP:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+
+## Program Committee certificates
+
+Separate module in `certificate/` (PDF template, fonts, server logic). Data: `data/committee.csv` and `data/edition.json` → `certificate`. Routes: `/certificates/bulk` (organizer UI) and `/api/certificates/bulk` (ZIP API).
+
+1. `npm run dev`
+2. Open [http://localhost:3000/certificates/bulk](http://localhost:3000/certificates/bulk)
+
+### Environment variable: `CERTIFICATE_ADMIN_SECRET`
+
+Password for bulk ZIP export. Optional locally; **required in production** (do not rely on the dev default).
+
+| Where | How to set |
+|-------|------------|
+| **Local** | Create `.env.local` in the project root: `CERTIFICATE_ADMIN_SECRET=your-secret-here` (file is gitignored). Restart `npm run dev`. |
+| **Netlify** | Site settings → Environment variables → add `CERTIFICATE_ADMIN_SECRET` with a strong value. Redeploy after changing it. |
+
+If unset, the app uses the development default `lasd-dev-admin-secret` (see `certificate/auth.js`).
+
+Generate a secret, for example:
+
+```bash
+openssl rand -hex 32
+```
 
 ## Learn More
 

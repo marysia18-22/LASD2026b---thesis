@@ -59,6 +59,21 @@
     "status": "tba"
   },
 
+  "certificate": {
+    "enabled": true,
+    "title": "Certificate of Appreciation",
+    "roleLabel": "Program Committee Member",
+    "intro": "This certificate is presented to",
+    "body": "in recognition of valuable service as a member of the Program Committee for the track on Lean and Agile Software Development (LASD), part of ISD'26 — the 34th International Conference on Information Systems Development.",
+    "closing": "We sincerely thank you for your contribution to the scientific quality of the conference.",
+    "logo": "/ais.png",
+    "signatories": [
+      { "name": "Adam Przybyłek", "title": "Track Chair" },
+      { "name": "Eva-Maria Schön", "title": "Track Chair" },
+      { "name": "Xiaofeng Wang", "title": "Track Chair" }
+    ]
+  },
+
   "navigation": [
     { "id": "home", "label": "Home" },
     { "id": "about", "label": "About" },
