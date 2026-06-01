@@ -59,6 +59,18 @@
     "status": "tba"
   },
 
+  "pastConferences": {
+    "thessaloniki2026": "/PastConferences/Thessaloniki2026.jpg",
+    "belgrade2025": "/PastConferences/Belgrade2025.jpg",
+    "sopot2024": "/PastConferences/Sopot2024.jpg",
+    "avila2024": "/PastConferences/Avila2024.jpg",
+    "tallinn2023": "/PastConferences/Talin2023.jpg",
+    "virtual": "/PastConferences/Virtual.jpg",
+    "leipzig2019": "/PastConferences/Leipzig2019.jpg",
+    "poznan2018": "/PastConferences/Poznan2018.jpg",
+    "prague2017" : "/PastConferences/Prague2017.jpg"
+  },
+
   "certificate": {
     "enabled": true,
     "title": "Certificate of Appreciation",

@@ -1,0 +1,15 @@
+1. I added the border around each container/card, so now each section has some shading around the border, instead of it being flat.
+And also for the cards in the History section, when we place our mouse over the card, it kinda hovers.
+
+2. I added the pictures to the cards in History, Im not sure it looks super great (I hate styling) but it's smth.
+
+For each place the picture I added is taken from each LASD website.
+For virtual events I took some random picture from the internet (I need to ask him about it though, if we can do that and if it looks ok)
+For Leipzig 2019 and Poznan 2018, there were no pictures on the LASD website, so I also took some from the internet 
+(again, we should ask if we can do that)
+For Prague 2017, I took the picture that's on this edition page.
+
+I added all the photos in the folder : public/PastConferences
+I added all the pictures to the edition.json
+
+Something I noticed: When I clicked website in Poznan 2018 section - I got a Not Found error. (idk if this is how it's supposed to be)

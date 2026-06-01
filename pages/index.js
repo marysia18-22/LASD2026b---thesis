@@ -33,7 +33,7 @@ export default function Home({ edition, chairs, committee }) {
       <Program program={edition.program}/>
       <Chairs people={chairs} />
       <Committee people={committee} />
-      <PastConferences />
+      <PastConferences edition={edition}/>
     </Container>
   )
 }
