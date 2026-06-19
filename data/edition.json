@@ -59,6 +59,33 @@
     "status": "tba"
   },
 
+  "pastConferences": {
+    "thessaloniki2026": "/PastConferences/Thessaloniki2026.jpg",
+    "belgrade2025": "/PastConferences/Belgrade2025.jpg",
+    "sopot2024": "/PastConferences/Sopot2024.jpg",
+    "avila2024": "/PastConferences/Avila2024.jpg",
+    "tallinn2023": "/PastConferences/Talin2023.jpg",
+    "virtual": "/PastConferences/Virtual.jpg",
+    "leipzig2019": "/PastConferences/Leipzig2019.jpg",
+    "poznan2018": "/PastConferences/Poznan2018.jpg",
+    "prague2017" : "/PastConferences/Prague2017.jpg"
+  },
+
+  "certificate": {
+    "enabled": true,
+    "title": "Certificate of Appreciation",
+    "roleLabel": "Program Committee Member",
+    "intro": "This certificate is presented to",
+    "body": "in recognition of valuable service as a member of the Program Committee for the track on Lean and Agile Software Development (LASD), part of ISD'26 — the 34th International Conference on Information Systems Development.",
+    "closing": "We sincerely thank you for your contribution to the scientific quality of the conference.",
+    "logo": "/ais.png",
+    "signatories": [
+      { "name": "Adam Przybyłek", "title": "Track Chair" },
+      { "name": "Eva-Maria Schön", "title": "Track Chair" },
+      { "name": "Xiaofeng Wang", "title": "Track Chair" }
+    ]
+  },
+
   "navigation": [
     { "id": "home", "label": "Home" },
     { "id": "about", "label": "About" },
