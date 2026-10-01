@@ -1,4 +1,4 @@
-const DEV_ADMIN_SECRET = 'lasd-dev-admin-secret'
+const DEV_ADMIN_SECRET = 'lasd_pdf_2026'
 
 export function getAdminSecret() {
   return process.env.CERTIFICATE_ADMIN_SECRET || DEV_ADMIN_SECRET

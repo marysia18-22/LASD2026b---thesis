@@ -13,19 +13,19 @@ export default function BulkCertificatesPage({ edition, memberCount, enabled }) 
 
   const title = edition?.branding?.pageTitle || 'LASD'
 
-  async function handleDownload(event) {
+  async function handleDownload(event, sample = false, orientation = 'portrait') {
     event.preventDefault()
     setError(null)
     setLoading(true)
 
     try {
-      const res = await fetch('/api/certificates/bulk', {
+      const res = await fetch(sample ? '/api/certificates/sample' : '/api/certificates/bulk', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           Authorization: `Bearer ${secret}`,
         },
-        body: JSON.stringify({ secret }),
+        body: JSON.stringify({ secret, orientation }),
       })
 
       if (!res.ok) {
@@ -37,7 +37,9 @@ export default function BulkCertificatesPage({ edition, memberCount, enabled }) 
       const url = URL.createObjectURL(blob)
       const anchor = document.createElement('a')
       anchor.href = url
-      anchor.download = `LASD-${edition.year}-PC-certificates.zip`
+      anchor.download = sample
+        ? `LASD-${edition.year}-PC-sample-${orientation}.pdf`
+        : `LASD-${edition.year}-PC-certificates.zip`
       anchor.click()
       URL.revokeObjectURL(url)
     } catch (err) {
@@ -50,7 +52,7 @@ export default function BulkCertificatesPage({ edition, memberCount, enabled }) 
   if (!enabled) {
     return (
       <Container className="py-5">
-        <Head><title>Bulk certificates · {title}</title></Head>
+        <Head><title>Certificates · {title}</title></Head>
         <Alert variant="warning">Certificate generation is disabled in edition.json.</Alert>
       </Container>
     )
@@ -59,13 +61,13 @@ export default function BulkCertificatesPage({ edition, memberCount, enabled }) 
   return (
     <Container className="py-5" style={{ maxWidth: 560 }}>
       <Head>
-        <title>Bulk certificates · {title}</title>
+        <title>Certificates · {title}</title>
         <meta name="robots" content="noindex, nofollow" />
       </Head>
 
-      <h1 className="h3 mb-3">Bulk certificate export</h1>
+      <h1 className="h3 mb-3">Certificate downloads</h1>
       <p className="text-muted">
-        Organizers only. Generates one PDF per program committee member ({memberCount} people) and downloads a ZIP file.
+        Organizers only. Download one sample PDF or generate certificates for all {memberCount} program committee members as a ZIP.
       </p>
 
       {isUsingDevAdminSecret() && (
@@ -74,7 +76,7 @@ export default function BulkCertificatesPage({ edition, memberCount, enabled }) 
         </Alert>
       )}
 
-      <Form onSubmit={handleDownload}>
+      <Form onSubmit={(event) => handleDownload(event)}>
         <Form.Group className="mb-3">
           <Form.Label>Organizer secret</Form.Label>
           <Form.Control
@@ -92,9 +94,30 @@ export default function BulkCertificatesPage({ edition, memberCount, enabled }) 
 
         {error && <Alert variant="danger">{error}</Alert>}
 
-        <Button type="submit" variant="primary" disabled={loading || !secret}>
-          {loading ? 'Generating…' : 'Download ZIP of all certificates'}
-        </Button>
+        <div className="d-flex flex-wrap" style={{ gap: 8 }}>
+          <Button type="submit" variant="primary" disabled={loading || !secret}>
+            {loading ? 'Generating…' : 'Download ZIP of all certificates'}
+          </Button>
+          <Button
+            type="button"
+            variant="outline-primary"
+            disabled={loading || !secret}
+            onClick={(event) => handleDownload(event, true)}
+          >
+            {loading ? 'Generating…' : 'Portrait sample PDF'}
+          </Button>
+          <Button
+            type="button"
+            variant="outline-secondary"
+            disabled={loading || !secret}
+            onClick={(event) => handleDownload(event, true, 'landscape')}
+          >
+            {loading ? 'Generating…' : 'Landscape sample PDF'}
+          </Button>
+        </div>
+        <Form.Text className="d-block text-muted mt-2">
+          The sample is generated for the first person in the committee CSV.
+        </Form.Text>
       </Form>
 
       <p className="text-muted small mt-4 mb-0">

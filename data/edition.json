@@ -3,6 +3,7 @@
   "slug": "2026-isd",
   "year": 2026,
   "series": "LASD",
+  "conferenceType": "ISD",
 
   "branding": {
     "pageTitle": "LASD 2026",
@@ -17,7 +18,7 @@
 
   "host": {
     "name": "ISD'26",
-    "fullName": "34rd International Conference on Information Systems Development",
+    "fullName": "34th International Conference on Information Systems Development",
     "url": "https://isd2026.ksi.fit.cvut.cz/"
   },
 
@@ -62,15 +63,16 @@
   "certificate": {
     "enabled": true,
     "title": "Certificate of Appreciation",
-    "roleLabel": "Program Committee Member",
-    "intro": "This certificate is presented to",
-    "body": "in recognition of valuable service as a member of the Program Committee for the track on Lean and Agile Software Development (LASD), part of ISD'26 — the 34th International Conference on Information Systems Development.",
-    "closing": "We sincerely thank you for your contribution to the scientific quality of the conference.",
-    "logo": "/ais.png",
+    "conferenceTitle": "LASD@ISD'26",
+    "trackTitle": "Track on Lean and Agile Software Development",
+    "topicTitle": "at the 34th International Conference on Information Systems Development",
+    "intro": "Presented to",
+    "body": "In recognition of your valuable service as a member of the Program Committee for the LASD track at the 34th International Conference on Information Systems Development, held in Prague, Czechia, September 2–4, 2026.",
+    "logos": ["/ais.png"],
     "signatories": [
-      { "name": "Adam Przybyłek", "title": "Track Chair" },
-      { "name": "Eva-Maria Schön", "title": "Track Chair" },
-      { "name": "Xiaofeng Wang", "title": "Track Chair" }
+      { "signatureImage": "/sig-1.png" },
+      { "signatureImage": "/sig-1.png" },
+      { "signatureImage": "/sig-1.png" }
     ]
   },
 
