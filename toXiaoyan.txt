@@ -1,0 +1,21 @@
+ok, so i made the changed to edition.json and i guess it should be fine and it should work now
+
+i ended up using the version of the project that was on main, cause I noticed that the version of the project on 'pdf' branch
+doesnt include the images in pastConferences section;
+however the certificate folder is taken from the pdf branch, so it should be the current version of those files (hope it makes sense, ask me if its unclear)
+
+
+these are the lines that changed in the conferences folder:
+
+data.js
+line 57: trackTitle: cert.trackTitle || `Track on ${edition.seriesFullName}`,
+line 56: conferenceTitle: cert.conferenceTitle || `${edition.series}@${edition.host.name}'${String(edition.year).slice(-2)}`,
+
+bulk.js
+line 14 : const title = `${edition?.series || 'LASD'} ${edition?.year || ''}`.trim();
+
+there is still smth i need to take a look at, cause in our edition.json we had a section relatedEdition,
+which he told us to delete and take the info from PastConferences.js file, but that section didn't have the dates so I added them there,
+but only to the newest edition and maybe I can add the dates to all editions later (and the location is weird now there)
+
+

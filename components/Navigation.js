@@ -3,12 +3,12 @@ import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 
 const Navigation = ({ edition }) => {
-  const { branding, navigation } = edition
+  const { branding, navigation, host } = edition
 
   return(
   <Navbar sticky='top' bg='white' className='shadow-sm' expand='xl'>
     <Navbar.Brand href='#home'><Image src={branding.logo} alt='AIS Logo' height='40' /></Navbar.Brand>
-    <Navbar.Brand href='#home'>{branding.navTitle}</Navbar.Brand>
+    <Navbar.Brand href='#home'>{edition.series}@{host.name}'{String(edition.year).slice(-2)}</Navbar.Brand>
     <Navbar.Toggle aria-controls="navbar-nav" />
     <Navbar.Collapse id="navbar-nav">
       <Nav className="ml-auto">

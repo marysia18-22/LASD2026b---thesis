@@ -1,14 +1,9 @@
 {
-  "id": "lasd-isd-2026",
-  "slug": "2026-isd",
   "year": 2026,
   "series": "LASD",
+  "seriesFullName": "Lean and Agile Software Development",
 
   "branding": {
-    "pageTitle": "LASD 2026",
-    "shortTitle": "LASD@ISD'26",
-    "navTitle": "LASD@ISD'26",
-    "trackName": "Lean and Agile Software Development",
     "logo": "/ais.png",
     "heroImage": "/Prague.jpg",
     "heroImageAlt": "Prague",
@@ -16,36 +11,24 @@
   },
 
   "host": {
-    "name": "ISD'26",
+    "name": "ISD",
     "fullName": "34rd International Conference on Information Systems Development",
     "url": "https://isd2026.ksi.fit.cvut.cz/"
   },
 
   "venue": {
     "city": "Prague",
-    "country": "Czechia",
-    "display": "Prague, Czechia"
+    "country": "Czechia"
   },
 
   "dates": {
     "start": "2026-09-02",
-    "end": "2026-09-04",
-    "display": "September 2–4, 2026"
+    "end": "2026-09-04"
   },
-
-  "relatedEditions": [
-    {
-      "shortTitle": "LASD@SAC'26",
-      "url": "https://y2026.lasd.pl/",
-      "datesDisplay": "March 23-27, 2026",
-      "location": "Thessaloniki, Greece"
-    }
-  ],
 
   "links": {
     "submissionPortal": "https://easychair.org/conferences/?conf=isd2026",
-    "paperTemplate": "https://isd2026.ksi.fit.cvut.cz/submission/",
-    "parentConference": "https://isd2026.ksi.fit.cvut.cz/"
+    "paperTemplate": "https://isd2026.ksi.fit.cvut.cz/submission/"
   },
 
   "importantDates": [

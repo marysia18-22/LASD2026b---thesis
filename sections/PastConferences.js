@@ -3,13 +3,18 @@ import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 
-const conferences = [
+export const conferences = [
   {
     title: "LASD@SAC'26",
     location: "Thessaloniki 2026",
     image: "thessaloniki2026",
     website: "https://y2026.lasd.pl",
-    proceedings: ""
+    proceedings: "",
+    city: "Thessaloniki",
+    country: "Greece",
+    year: "2026",
+    start_date: "2026-03-23",
+    end_date: "2026-03-27"
   },
   {
     title: "LASD@ISD'25",
