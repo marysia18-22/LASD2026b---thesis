@@ -53,8 +53,8 @@ export function buildCertificateViewModel(member, edition, orientation = 'portra
 
   return {
     title: cert.title,
-    conferenceTitle: cert.conferenceTitle || edition.branding.shortTitle,
-    trackTitle: cert.trackTitle || `Track on ${edition.branding.trackName}`,
+    conferenceTitle: cert.conferenceTitle || `${edition.series}@${edition.host.name}'${String(edition.year).slice(-2)}`,
+    trackTitle: cert.trackTitle || `Track on ${edition.seriesFullName}`,
     topicTitle: cert.topicTitle || `at the ${edition.host.fullName}`,
     intro: cert.intro,
     body: cert.body,

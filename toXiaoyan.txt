@@ -1,29 +1,21 @@
-1. I noticed that in the section To do, on mojaPG there is smth like this : 
-Data Architecture: Design the schema for edition metadata (JSON) and tabular content (CSV).
-For now, we had the CSV files, but we didnt have this JSON.
+ok, so i made the changed to edition.json and i guess it should be fine and it should work now
 
-From what I understand this JSON is supposed to hold edition specific data, 
-so instead of hardcoding everything for each edition, we can just change this json file.
-So in data folder, I added edition.json where all the edition specific info is held.
-And in util.js I added a func to read from JSON. 
-And in some section files I updated them to read info from this json, not put information there manually.
+i ended up using the version of the project that was on main, cause I noticed that the version of the project on 'pdf' branch
+doesnt include the images in pastConferences section;
+however the certificate folder is taken from the pdf branch, so it should be the current version of those files (hope it makes sense, ask me if its unclear)
 
-Also added the headers to both CSVs and updated the readCSV function so it automatically skips the header.
 
-2. In Nav bar, we had 'PC' which lead us to Track Chairs section.
-I changed it a bit so now we have Chairs (which takes us to Track Chairs)
-and Committee (which takes us to Program Committee)
+these are the lines that changed in the conferences folder:
 
-I believe it's clearer and more intuitive.
+data.js
+line 57: trackTitle: cert.trackTitle || `Track on ${edition.seriesFullName}`,
+line 56: conferenceTitle: cert.conferenceTitle || `${edition.series}@${edition.host.name}'${String(edition.year).slice(-2)}`,
 
-3. For now that's pretty much it. I tried to make some UI changes but what Cursor recommeded for me eehhh it did look good, tbh.
-But I remember the guy said smth about some other guy who has some knowledge on UI and make could help us.
-Or I'll try smth out later.
+bulk.js
+line 14 : const title = `${edition?.series || 'LASD'} ${edition?.year || ''}`.trim();
 
-4. To run this on your local machine I would do.
-a. npm install
-b. npm run dev 
-c. open : http://localhost:3000 in the browser
+there is still smth i need to take a look at, cause in our edition.json we had a section relatedEdition,
+which he told us to delete and take the info from PastConferences.js file, but that section didn't have the dates so I added them there,
+but only to the newest edition and maybe I can add the dates to all editions later (and the location is weird now there)
 
-Im still trying to figure out the Netlify cause it doesn't work for me... 
 

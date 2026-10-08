@@ -1,9 +1,9 @@
-import { useState } from 'react'
 import Head from 'next/head'
+import { useState } from 'react'
+import Alert from 'react-bootstrap/Alert'
+import Button from 'react-bootstrap/Button'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
-import Alert from 'react-bootstrap/Alert'
 import { isUsingDevAdminSecret } from '../../certificate/auth'
 
 export default function BulkCertificatesPage({ edition, memberCount, enabled }) {
@@ -11,7 +11,7 @@ export default function BulkCertificatesPage({ edition, memberCount, enabled }) 
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
-  const title = edition?.branding?.pageTitle || 'LASD'
+  const title = `${edition?.series || 'LASD'} ${edition?.year || ''}`.trim();
 
   async function handleDownload(event, sample = false, orientation = 'portrait') {
     event.preventDefault()
