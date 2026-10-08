@@ -1,0 +1,6 @@
+i changed something in edition.json and data.js and added a png in public
+
+1. added the png version of acm logo coz react-pdf does not work with the svg version he gave us
+2. edition.json: deleted some titles entries in the certificate block to avoid repetition
+3. edition.json: corrected the 4rd to 4th :)
+4. data.js: added a function for switching logos for differecnt isd and sac editions

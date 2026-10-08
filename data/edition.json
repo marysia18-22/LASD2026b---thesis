@@ -12,7 +12,7 @@
 
   "host": {
     "name": "ISD",
-    "fullName": "34rd International Conference on Information Systems Development",
+    "fullName": "34th International Conference on Information Systems Development",
     "url": "https://isd2026.ksi.fit.cvut.cz/"
   },
 
@@ -57,16 +57,12 @@
   "certificate": {
     "enabled": true,
     "title": "Certificate of Appreciation",
-    "conferenceTitle": "LASD@ISD'26",
-    "trackTitle": "Track on Lean and Agile Software Development",
-    "topicTitle": "at the 34th International Conference on Information Systems Development",
     "intro": "Presented to",
     "body": "In recognition of your valuable service as a member of the Program Committee for the LASD track at the 34th International Conference on Information Systems Development, held in Prague, Czechia, September 2–4, 2026.",
-    "logos": ["/ais.png"],
     "signatories": [
       { "signatureImage": "/sig-1.png" },
       { "signatureImage": "/sig-1.png" },
-      { "signatureImage": "/sig-1.png" }
+      { "signatureImage": null }
     ]
   },
 
