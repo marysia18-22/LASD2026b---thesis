@@ -36,7 +36,7 @@ const Header = ({ edition }) => {
 	  <Image src={branding.heroImage} alt={branding.heroImageAlt} fluid />
         </div>
         <div className="col-md-6">
-          <h1 className='h1 text-center anchor font-weight-bold'>LASD@<a className='u' href={host.url}>{host.name}'{String(edition.year).slice(-2)}</a></h1>
+          <h1 className='h1 text-center anchor font-weight-bold'>{edition.series}@<a className='u' href={host.url}>{host.name}'{String(edition.year).slice(-2)}</a></h1>
           <h2 className='text-center h3 py-3'>Track on <strong>{edition.seriesFullName}</strong></h2>
           <h3 className='text-center h4 pb-3'><small>at the {host.fullName}</small></h3>
           <h4 className='text-center h5'>{formatDateRange(dates.start, dates.end)}</h4>
