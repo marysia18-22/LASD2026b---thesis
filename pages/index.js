@@ -9,6 +9,7 @@ import ImportantDates from '../sections/ImportantDates'
 import Motivation from '../sections/Motivation'
 import PastConferences from '../sections/PastConferences'
 import Program from '../sections/Program'
+import Publications from '../sections/Publications'
 import Submissions from '../sections/Submissions'
 import Topics from '../sections/Topics'
 
@@ -18,7 +19,7 @@ export default function Home({ edition, chairs, committee }) {
   return (
     <Container fluid className='px-0' style={{backgroundColor: edition.branding.backgroundColor}}>
       <Head>
-        <title>{edition.series} {edition.year}</title>
+        <title>{`${edition.series} ${edition.year}`}</title>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossOrigin="anonymous"></link>
       </Head>
 
@@ -33,6 +34,7 @@ export default function Home({ edition, chairs, committee }) {
       <Program program={edition.program}/>
       <Chairs people={chairs} />
       <Committee people={committee} />
+      <Publications />
       <PastConferences edition={edition}/>
     </Container>
   )

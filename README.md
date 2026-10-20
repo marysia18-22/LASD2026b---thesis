@@ -26,6 +26,24 @@ npm run dev
 
 Open [http://yourServerIP:3000](http://yourServerIP:3000) with your browser to see the result.
 
+## Updating LASD publications
+
+The searchable catalog reads `public/lasd-publications.bib`. For editions with a dedicated DBLP table of contents, download its BibTeX export and merge it into the catalog with:
+
+```bash
+npm run publications:update -- path/to/dblp-export.bib
+```
+
+The importer keeps conference-paper entries whose proceedings identify LASD, skips proceedings-level entries, merges matching records by normalized title, year, and proceedings, and sorts the catalog by year. For LASD 2021, it can request the DBLP export directly:
+
+```bash
+npm run publications:update -- --dblp 2021
+```
+
+If that request receives a bot-check page, download the BibTeX export in a browser and use the file import command. For editions embedded in larger SAC, FedCSIS, or ISD proceedings, export the LASD track entries specifically; do not import an entire volume because it contains unrelated papers. Review each imported batch before committing the updated catalog.
+
+See [the catalog maintenance runbook](docs/lasd-publications-maintenance.md) for the paper discovery, source verification, and review steps. In particular, `--lasd-track` skips the proceedings-name check; it does not filter whole-volume exports for you.
+
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
 ## Program Committee certificates
@@ -66,4 +84,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-

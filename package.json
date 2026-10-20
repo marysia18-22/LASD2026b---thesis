@@ -5,9 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "publications:update": "node scripts/update-publications.js"
   },
   "dependencies": {
+    "@citation-js/core": "^0.9.0",
+    "@citation-js/plugin-bibtex": "^0.9.0",
     "@netlify/plugin-nextjs": "^5.15.11",
     "@react-pdf/renderer": "^4.5.1",
     "bootstrap": "^4.5.3",

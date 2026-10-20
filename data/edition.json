@@ -76,6 +76,7 @@
     { "id": "program", "label": "Program" },
     { "id": "chairs", "label": "Chairs" },
     { "id": "committee", "label": "Committee" },
+    { "id": "publications", "label": "Publications" },
     { "id": "conferences", "label": "History" }
   ]
 }
