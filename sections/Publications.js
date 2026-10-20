@@ -3,6 +3,11 @@ import { Cite } from '@citation-js/core'
 import '@citation-js/plugin-bibtex'
 import Container from 'react-bootstrap/Container'
 
+const normalizeSearchText = (value) => value
+  .normalize('NFD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .toLocaleLowerCase()
+
 const Publications = () => {
   const [entries, setEntries] = useState([])
   const [query, setQuery] = useState('')
@@ -15,11 +20,12 @@ const Publications = () => {
   }, [])
 
   const filtered = useMemo(() => {
-    const terms = query.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean)
+    const terms = normalizeSearchText(query).trim().split(/\s+/).filter(Boolean)
+    if (terms.length === 0) return []
     return entries.filter((entry) => {
       const authors = (entry.author || []).map(({ family, given }) => `${given || ''} ${family || ''}`).join(' ')
       const year = entry.issued?.['date-parts']?.[0]?.[0] || ''
-      const haystack = `${entry.title || ''} ${authors} ${year} ${entry['container-title'] || ''}`.toLocaleLowerCase()
+      const haystack = normalizeSearchText(`${entry.title || ''} ${authors} ${year} ${entry['container-title'] || ''}`)
       return terms.every((term) => haystack.includes(term))
     }).sort((a, b) => {
       const yearA = a.issued?.['date-parts']?.[0]?.[0] || 0
@@ -32,8 +38,8 @@ const Publications = () => {
     <Container fluid="md" className="section bg-white p-4 my-5 rounded">
       <a className="target" id="publications" />
       <h2 className="display-4 anchor mb-3">Publications</h2>
-      <p>Search LASD papers by title, author, year, or proceedings. Download the BibTeX records to cite them.</p>
-      <p className="text-muted"><small>Records are compiled from DBLP and publisher proceedings pages. Search includes papers published in LASD proceedings and tracks; revised versions published in a later volume appear as separate citations.</small></p>
+      <p>Search LASD papers by title, author, year, or proceedings. </p>
+      {/* <p className="text-muted"><small>Records are compiled from DBLP and publisher proceedings pages. Search includes papers published in LASD proceedings and tracks; revised versions published in a later volume appear as separate citations.</small></p> */}
       <label className="sr-only" htmlFor="publication-search">Search publications</label>
       <input
         id="publication-search"
@@ -43,8 +49,9 @@ const Publications = () => {
         value={query}
         onChange={(event) => setQuery(event.target.value)}
       />
-      <p className="text-muted" aria-live="polite">{filtered.length} {filtered.length === 1 ? 'paper' : 'papers'} found</p>
+      {query.trim() && <p className="text-muted" aria-live="polite">{filtered.length} {filtered.length === 1 ? 'paper' : 'papers'} found</p>}
       {entries.length === 0 && <p>Loading publication records…</p>}
+      {entries.length > 0 && !query.trim() && <p className="text-muted">Enter a title, author, year, or proceedings name to search the catalog.</p>}
       {entries.length > 0 && filtered.length === 0 && <p>No matching papers found.</p>}
       <ul className="list-unstyled">
         {filtered.map((entry) => (
