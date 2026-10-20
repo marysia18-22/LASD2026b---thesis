@@ -39,7 +39,7 @@ export default function BulkCertificatesPage({ edition, memberCount, enabled }) 
       anchor.href = url
       anchor.download = sample
         ? `LASD-${edition.year}-PC-sample-${orientation}.pdf`
-        : `LASD-${edition.year}-PC-certificates.zip`
+        : `LASD-${edition.year}-PC-certificates-${orientation}.zip`
       anchor.click()
       URL.revokeObjectURL(url)
     } catch (err) {
@@ -67,7 +67,7 @@ export default function BulkCertificatesPage({ edition, memberCount, enabled }) 
 
       <h1 className="h3 mb-3">Certificate downloads</h1>
       <p className="text-muted">
-        Organizers only. Download one sample PDF or generate certificates for all {memberCount} program committee members as a ZIP.
+        Organizers only. Download portrait or landscape samples, or generate certificates for all {memberCount} program committee members in either layout.
       </p>
 
       {isUsingDevAdminSecret() && (
@@ -96,7 +96,15 @@ export default function BulkCertificatesPage({ edition, memberCount, enabled }) 
 
         <div className="d-flex flex-wrap" style={{ gap: 8 }}>
           <Button type="submit" variant="primary" disabled={loading || !secret}>
-            {loading ? 'Generating…' : 'Download ZIP of all certificates'}
+            {loading ? 'Generating…' : 'Download portrait ZIP'}
+          </Button>
+          <Button
+            type="button"
+            variant="outline-primary"
+            disabled={loading || !secret}
+            onClick={(event) => handleDownload(event, false, 'landscape')}
+          >
+            {loading ? 'Generating…' : 'Download landscape ZIP'}
           </Button>
           <Button
             type="button"

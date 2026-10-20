@@ -37,15 +37,16 @@ export default async function handler(req, res) {
 
   try {
     const zip = new JSZip()
+    const orientation = req.body?.orientation === 'landscape' ? 'landscape' : 'portrait'
 
     for (const member of members) {
-      const pdf = await renderCertificatePdf(member, edition)
-      const filename = certificateFilename(member, edition)
+      const pdf = await renderCertificatePdf(member, edition, orientation)
+      const filename = certificateFilename(member, edition).replace('.pdf', `-${orientation}.pdf`)
       zip.file(filename, pdf)
     }
 
     const buffer = await zip.generateAsync({ type: 'nodebuffer' })
-    const zipName = `LASD-${edition.year}-PC-certificates.zip`
+    const zipName = `LASD-${edition.year}-PC-certificates-${orientation}.zip`
 
     res.setHeader('Content-Type', 'application/zip')
     res.setHeader('Content-Disposition', `attachment; filename="${zipName}"`)
